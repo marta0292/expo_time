@@ -1,0 +1,70 @@
+{
+  "projects": [
+    {
+      "id": 62979,
+      "projectName": "Philips",
+      "showName": "ECR 2020",
+      "city": "Vienna",
+      "supplier": "Mat-Expo",
+      "hallNumber": "4X",
+      "boothNumber": "402",
+      "assembly": "4-10.04.2020",
+      "show": "11-15.03.2020"
+    },
+    {
+      "id": 62950,
+      "projectName": "Philips",
+      "showName": "Dental Expo 2020",
+      "city": "Amsterdam",
+      "supplier": "Danpol",
+      "hallNumber": "B",
+      "boothNumber": "B135",
+      "assembly": "17-19.04.2020",
+      "show": "19-21.03.2020"
+    },
+    {
+      "id": 62981,
+      "projectName": "Mimaki",
+      "showName": "FESPA 2020",
+      "city": "Madrid",
+      "supplier": "BWS",
+      "hallNumber": "",
+      "boothNumber": "",
+      "assembly": "",
+      "show": "24-27.03.2020"
+    },
+    {
+      "id": 62977,
+      "projectName": "Honeywell",
+      "showName": "AIX 2020",
+      "city": "Hamburg",
+      "supplier": "Mat-Expo",
+      "hallNumber": "4",
+      "boothNumber": "4B40",
+      "assembly": "27-30.03.2020",
+      "show": "31.03-02.04.2020"
+    },
+    {
+      "id": 62911,
+      "projectName": "DSM",
+      "showName": "IN COSMETICS 2020",
+      "city": "Barcelona",
+      "supplier": "Trivent",
+      "hallNumber": "",
+      "boothNumber": "",
+      "assembly": "",
+      "show": "31.03-02.04.2020"
+    },
+    {
+      "id": 63010,
+      "projectName": "BendixKing",
+      "showName": "AERO F 2020",
+      "city": "Friedrichshafen",
+      "supplier": "Iwomeble",
+      "hallNumber": "A3",
+      "boothNumber": "404",
+      "assembly": "25.03-01.04.2020",
+      "show": "1-4.04.2020"
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+.footer {
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .btn-back-to-main {
+      background-color: #D69A2D;
+      border: none;
+      padding: 1rem;
+      border-radius: 10px;
+      text-decoration: none;
+    }
+  }
+}

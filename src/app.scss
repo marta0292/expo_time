@@ -1,0 +1,13 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.App {
+  background-color: #334355;
+  height: 100vh;
+  .container {
+    width: 100%;
+    padding: 0 10%;
+  }
+}
