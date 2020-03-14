@@ -1,3 +1,34 @@
+.new-project-title {
+  color: #D69A2D;
+  text-align: center;
+  font-size: 2rem;
+}
 form {
-  color: #FFF5E7;
+  color: #334355;
+  background-color: #9FC3D8;
+  border-radius: 5px;
+  margin: 0.5rem 0;
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: space-evenly;
+
+  input {
+    background-color: #9FC3D8;
+    border: none;
+    border-bottom: 1px solid #334355;
+    margin: 0.5rem;
+    width: 400px;
+  }
+  button {
+    width: 100%;
+    background-color: #D69A2D;
+    border: none;
+    padding: 1rem;
+    border-radius: 10px;
+    text-decoration: none;
+    color: #334355;
+    font-weight: 700;
+  }
 }

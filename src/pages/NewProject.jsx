@@ -32,8 +32,8 @@ class AddProject extends Component {
         const {id, projectName, showName, city, supplier, hallNumber, boothNumber, assembly, show} = this.state;
         return (
             <>
-                <h2>New project</h2>
-                <form onSubmit={this.handleSubmit}>
+                <h2 className='new-project-title'>New project</h2>
+                <form onSubmit={this.handleSubmit} className='new-project'>
                     <div>
                         <label>Project name</label>
                         <input name='projectName' value={projectName} onChange={this.handleChange} />
