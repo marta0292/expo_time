@@ -28,6 +28,30 @@ class AddProject extends Component {
         onSubmit(this.state);
     };
 
+    handleAddProject = (project) => {
+        const newProject = {
+            id: project.id,
+            projectName: project.projectName,
+            showName: project.showName,
+            city: project.city,
+            supplier: project.supplier,
+            hallNumber: project.hallNumber,
+            boothNumber: project.boothNumber,
+            assembly: project.assembly,
+            show: project.show
+        };
+        fetch('http://localhost:5000/projects', {
+            headers: {
+                'content-type': 'application/json',
+            },
+            method: 'POST',
+            body: JSON.stringify(newProject),
+        }).then((response) => {
+            this.componentDidMount();
+            return response.json();
+        })
+    };
+
     render() {
         const {id, projectName, showName, city, supplier, hallNumber, boothNumber, assembly, show} = this.state;
         return (
@@ -71,7 +95,7 @@ class AddProject extends Component {
                         <input name='show' value={show} onChange={this.handleChange} />
                     </div>
                     <div>
-                        <button type="submit">ADD NEW PROJECT</button>
+                        <button type="submit" onClick={this.handleAddProject}>ADD NEW PROJECT</button>
                     </div>
                 </form>
             </>
