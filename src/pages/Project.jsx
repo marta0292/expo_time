@@ -2,6 +2,8 @@ import React, {Component} from "react";
 import Header from "../components/header/Header";
 import FooterPages from "../components/footer/Footer_pages";
 import './project.scss';
+import {faPlus} from '@fortawesome/free-solid-svg-icons'
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
 class Project extends Component {
     state = {
@@ -22,7 +24,25 @@ class Project extends Component {
             })
     };
 
+    handleAddNote = (e) => {
+        e.preventDefault();
+        const newNote = {
+            "notes": []
+        };
+        fetch('http://localhost:5000/projects/${this.props.match.params.projectId}/notes', {
+            headers: {
+                'content-type': 'application/json',
+            },
+            method: 'POST',
+            body: JSON.stringify(newNote),
+        }).then((response) => {
+            this.componentDidMount();
+            return response.json();
+        })
+    };
+
     render() {
+        const plusIcon = <FontAwesomeIcon icon={faPlus}/>;
         if (!this.state.project) {
             return (
                 <p>Ładowanie...</p>
@@ -43,7 +63,10 @@ class Project extends Component {
                     <p>Set-up: <span>{this.state.project.assembly}</span></p>
                     <div className={'add-note'}>
                         <label>Add note:</label>
-                        <input name='note'/>
+                        <div className={'note'}>
+                            <input name='note' type={'text'} onChange={(input) => {this.setState({"note": input.target.value})}}/>
+                            <button className={'add-note-btn'} onClick={this.handleAddNote}>{plusIcon}</button>
+                        </div>
                     </div>
 
                 </div>

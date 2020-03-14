@@ -1,29 +1,28 @@
+@import "../scss/colors";
 form {
-  color: #334355;
-  background-color: #9FC3D8;
+  color: $dark-color;
+  background-color: $bright-color;
   border-radius: 5px;
   margin: 0.5rem 0;
   padding: 0.5rem;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-content: space-evenly;
-
-  input {
-    background-color: #9FC3D8;
-    border: none;
-    border-bottom: 1px solid #334355;
-    margin: 0.5rem;
-    width: 400px;
-  }
-  button {
+  align-items: center;
+  .box {
     width: 100%;
-    background-color: #D69A2D;
-    border: none;
-    padding: 1rem;
-    border-radius: 10px;
-    text-decoration: none;
-    color: #334355;
-    font-weight: 700;
+    display: flex;
+    justify-content: space-between;
+    label {
+      width: 20%;
+    }
+    input {
+      background-color: $bright-color;
+      border: none;
+      border-bottom: 1px solid $dark-color;
+      margin: 0.5rem;
+      width: 80%;
+      height: 1.5rem;
+    }
   }
+
 }

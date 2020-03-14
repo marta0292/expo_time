@@ -6,8 +6,29 @@
     font-weight: 600;
   }
   .add-note {
-    padding: 1rem 0;
+    background-color: $bright-color;
+    border-radius: 5px;
+    color: $text-color;
     display: flex;
     flex-direction: column;
+    padding: 0.5rem 0 0.5rem 0.5rem;
+    margin: 1rem 0;
+    .note {
+      display: flex;
+      justify-content: space-between;
+      input {
+        background-color: $bright-color;
+        border: none;
+        border-bottom: 1px solid $dark-color;
+        height: 2rem;
+        width: 95%;
+      }
+      .add-note-btn {
+        background-color: #9FC3D8;
+        border: none;
+        color: $dark-color;
+        width: 5%;
+      }
+    }
   }
 }

@@ -1,9 +1,10 @@
+@import "../../scss/colors";
 .header {
   height: 15vh;
   display: flex;
   align-items: center;
   .container {
-    color: #FFF5E7;
+    color: $text-color;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
