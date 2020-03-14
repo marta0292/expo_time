@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import Header from "../components/header/Header";
-import FooterPages from "../components/footer_pages/Footer_pages";
+import FooterPages from "../components/footer/Footer_pages";
 import './newProject.scss';
 
 class AddProject extends Component {
@@ -22,24 +22,9 @@ class AddProject extends Component {
         })
     };
 
-    handleSubmit = (e) => {
+    handleAddProject = (e) => {
         e.preventDefault();
-        const {onSubmit} = this.props;
-        onSubmit(this.state);
-    };
-
-    handleAddProject = (project) => {
-        const newProject = {
-            id: project.id,
-            projectName: project.projectName,
-            showName: project.showName,
-            city: project.city,
-            supplier: project.supplier,
-            hallNumber: project.hallNumber,
-            boothNumber: project.boothNumber,
-            assembly: project.assembly,
-            show: project.show
-        };
+        const newProject = this.state;
         fetch('http://localhost:5000/projects', {
             headers: {
                 'content-type': 'application/json',
@@ -56,8 +41,8 @@ class AddProject extends Component {
         const {id, projectName, showName, city, supplier, hallNumber, boothNumber, assembly, show} = this.state;
         return (
             <>
-                <h2 className='new-project-title'>New project</h2>
-                <form onSubmit={this.handleSubmit} className='new-project'>
+                <h2 className='title'>New project</h2>
+                <form onSubmit={this.handleAddProject} className='new-project'>
                     <div>
                         <label>Project name</label>
                         <input name='projectName' value={projectName} onChange={this.handleChange} />
@@ -95,7 +80,7 @@ class AddProject extends Component {
                         <input name='show' value={show} onChange={this.handleChange} />
                     </div>
                     <div>
-                        <button type="submit" onClick={this.handleAddProject}>ADD NEW PROJECT</button>
+                        <button type="submit">ADD NEW PROJECT</button>
                     </div>
                 </form>
             </>

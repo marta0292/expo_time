@@ -3,11 +3,31 @@
   padding: 0;
   box-sizing: border-box;
 }
-.App {
-  background-color: #334355;
+
+@import "scss/_colors";
+
+body {
+  background-color: $dark-color;
+  min-height: 100%;
   height: 100vh;
+}
+.App {
   .container {
     width: 100%;
     padding: 0 10%;
   }
+}
+.title {
+  color: $contrast-color;
+  text-align: center;
+  font-size: 2rem;
+}
+.button {
+  background-color: $contrast-color;
+  border: none;
+  padding: 1rem;
+  border-radius: 10px;
+  text-decoration: none;
+  color: $dark-color;
+  font-weight: 700;
 }

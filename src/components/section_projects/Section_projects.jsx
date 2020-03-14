@@ -25,6 +25,7 @@ class SectionProjects extends Component {
         return (
             <div className='section-projects'>
                 <div className='container'>
+                    <h2 className='title'>Project list</h2>
                     <ul>
                         {projects.map(project => {
                             return (
