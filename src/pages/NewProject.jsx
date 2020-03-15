@@ -14,7 +14,7 @@ class AddProject extends Component {
         boothNumber: "",
         assembly: "",
         show: "",
-        note: []
+        disassembly: ""
     };
 
     handleChange = (e) => {
@@ -39,7 +39,7 @@ class AddProject extends Component {
     };
 
     render() {
-        const {id, projectName, showName, city, supplier, hallNumber, boothNumber, assembly, show, note} = this.state;
+        const {id, projectName, showName, city, supplier, hallNumber, boothNumber, assembly, show, disassembly} = this.state;
         return (
             <>
                 <h2 className='title'>New project</h2>
@@ -81,8 +81,8 @@ class AddProject extends Component {
                         <input name='show' value={show} onChange={this.handleChange} />
                     </div>
                     <div className={'box'}>
-                        <label>Note</label>
-                        <input name='note' value={note} onChange={this.handleChange} />
+                        <label>Disassembly</label>
+                        <input name='disassembly' value={disassembly} onChange={this.handleChange} />
                     </div>
                     <div>
                         <button className={'button'} type="submit">ADD NEW PROJECT</button>

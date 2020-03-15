@@ -10,7 +10,7 @@
       "boothNumber": "402",
       "assembly": "4-10.04.2020",
       "show": "11-15.03.2020",
-      "notes": []
+      "disassembly": "15-17.03.2020"
     },
     {
       "id": 62950,
@@ -22,7 +22,7 @@
       "boothNumber": "B135",
       "assembly": "17-19.04.2020",
       "show": "19-21.03.2020",
-      "notes": []
+      "disassembly": "21-23.03.2020"
     },
     {
       "id": 62981,
@@ -30,11 +30,11 @@
       "showName": "FESPA 2020",
       "city": "Madrid",
       "supplier": "BWS",
-      "hallNumber": "",
-      "boothNumber": "",
-      "assembly": "",
+      "hallNumber": "4X",
+      "boothNumber": "D200",
+      "assembly": "20-23.03.2020",
       "show": "24-27.03.2020",
-      "notes": []
+      "disassembly": "27-29.03.2020"
     },
     {
       "id": 62977,
@@ -46,7 +46,7 @@
       "boothNumber": "4B40",
       "assembly": "27-30.03.2020",
       "show": "31.03-02.04.2020",
-      "notes": []
+      "disassembly": "02-03.04.2020"
     },
     {
       "id": 62911,
@@ -54,11 +54,11 @@
       "showName": "IN COSMETICS 2020",
       "city": "Barcelona",
       "supplier": "Trivent",
-      "hallNumber": "",
-      "boothNumber": "",
-      "assembly": "",
+      "hallNumber": "5",
+      "boothNumber": "5B67",
+      "assembly": "25-30.03.2020",
       "show": "31.03-02.04.2020",
-      "notes": []
+      "disassembly": "02-04.04.2020"
     },
     {
       "id": 63010,
@@ -70,19 +70,7 @@
       "boothNumber": "404",
       "assembly": "25.03-01.04.2020",
       "show": "1-4.04.2020",
-      "notes": []
-    },
-    {
-      "id": "grtg",
-      "projectName": "mat",
-      "showName": "grdg",
-      "city": "dggggggggggg",
-      "supplier": "",
-      "hallNumber": "",
-      "boothNumber": "",
-      "assembly": "",
-      "show": "",
-      "notes": []
+      "disassembly": "04-06.04.2020"
     }
   ]
 }

@@ -14,7 +14,6 @@ const Header = () => {
                 <div className='user'>
                     {userIcon}
                     <h2 className='userName'>Marta</h2>
-
                 </div>
             </div>
         </div>

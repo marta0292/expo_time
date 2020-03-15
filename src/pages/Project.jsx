@@ -5,11 +5,71 @@ import './project.scss';
 import {faPlus} from '@fortawesome/free-solid-svg-icons'
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
-class Project extends Component {
+class NoteList extends Component {
+    state = {
+        notes: [],
+        newNote: ''
+    };
+
+    setNewNote = event => {
+        this.setState({
+            newNote: event.target.value
+        });
+    };
+
+    handleSubmit = (event) => {
+        event.preventDefault();
+
+        const notes = [...this.state.notes];
+
+        if (this.state.newNote !== '') {
+            notes.push({
+                id: notes.length + 1,
+                text: this.state.newNote
+            });
+
+            this.setState({
+                notes: notes,
+                newNote: '',
+            });
+        }
+    };
+
+    render() {
+        const plusIcon = <FontAwesomeIcon icon={faPlus}/>;
+        const {notes, newNote} = this.state;
+
+        return (
+            <div className={'grid'}>
+                <div className={'row note-list'}>
+                    <div className={'col-12'}>
+                        <ul>
+                            {notes.map(note =>
+                                <li key={note.id}><p>{new Date().toLocaleDateString()}; {new Date().toLocaleTimeString()}:</p> {note.text}</li>)}
+                        </ul>
+                    </div>
+                </div>
+                <div className={'row'}>
+                    <div className={'col-12 add-note'}>
+                        <form onSubmit={this.handleSubmit}>
+                            <label>Note:</label>
+                            <div className={'note'}>
+                                <input name='note' value={newNote} onChange={this.setNewNote}/>
+                                <button className={'add-note-btn'}>{plusIcon}</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        )
+    }
+}
+
+
+class ProjectInfo extends Component {
     state = {
         project: null
     };
-
 
     componentDidMount() {
         fetch(`http://localhost:5000/projects/${this.props.match.params.projectId}`)
@@ -17,32 +77,13 @@ class Project extends Component {
                 return response.json();
             })
             .then((project) => {
-                console.log(project);
                 this.setState({
                     project,
                 })
             })
     };
 
-    handleAddNote = (e) => {
-        e.preventDefault();
-        const newNote = {
-            "notes": []
-        };
-        fetch('http://localhost:5000/projects/${this.props.match.params.projectId}/notes', {
-            headers: {
-                'content-type': 'application/json',
-            },
-            method: 'POST',
-            body: JSON.stringify(newNote),
-        }).then((response) => {
-            this.componentDidMount();
-            return response.json();
-        })
-    };
-
     render() {
-        const plusIcon = <FontAwesomeIcon icon={faPlus}/>;
         if (!this.state.project) {
             return (
                 <p>Ładowanie...</p>
@@ -50,30 +91,33 @@ class Project extends Component {
         }
         return (
             <>
-                <Header/>
-                <div className='container'>
-                    <h1>Project name: {this.state.project.projectName}</h1>
-                    <h1>Project number: <span>{this.props.match.params.projectId}</span></h1>
-                    <p>Event: {this.state.project.showName}</p>
-                    <p>Term: {this.state.project.show}</p>
-                    <p>Location: {this.state.project.city}</p>
-                    <p>Supplier: {this.state.project.supplier}</p>
-                    <p>Hall number: {this.state.project.hallNumber}</p>
-                    <p>Booth number: {this.state.project.boothNumber}</p>
-                    <p>Set-up: <span>{this.state.project.assembly}</span></p>
-                    <div className={'add-note'}>
-                        <label>Add note:</label>
-                        <div className={'note'}>
-                            <input name='note' type={'text'} onChange={(input) => {this.setState({"note": input.target.value})}}/>
-                            <button className={'add-note-btn'} onClick={this.handleAddNote}>{plusIcon}</button>
-                        </div>
+            <Header/>
+            <div className={'container'}>
+                <div className={'grid'}>
+                    <div className={'row header'}>
+                        <div className={'col-10 title'}><h2>{this.state.project.projectName}</h2></div>
+                        <div className={'col-2'}><p>Project number:</p><h3>{this.props.match.params.projectId}</h3></div>
                     </div>
-
+                    <div className={'row show-info'}>
+                        <div className={'col-4'}><p>Event:</p><h3>{this.state.project.showName}</h3></div>
+                        <div className={'col-4'}><p>Location:</p><h3>{this.state.project.city}</h3></div>
+                        <div className={'col-4'}><p>Term:</p><h3>{this.state.project.show}</h3></div>
+                    </div>
+                    <div className={'row booth-info'}>
+                        <div className={'col-6'}><p>Booth number:</p><h3>{this.state.project.boothNumber}</h3></div>
+                        <div className={'col-6'}><p>Hall number:</p><h3>{this.state.project.hallNumber}</h3></div>
+                    </div>
+                    <div className={'row setup-info'}>
+                        <div className={'col-6'}><p>Assembly:</p><h3>{this.state.project.assembly}</h3></div>
+                        <div className={'col-6'}><p>Disassembly:</p><h3>{this.state.project.disassembly}</h3></div>
+                    </div>
                 </div>
-                <FooterPages/>
+                <NoteList/>
+            </div>
+            <FooterPages/>
             </>
         );
     }
 }
 
-export default Project;
+export default ProjectInfo;

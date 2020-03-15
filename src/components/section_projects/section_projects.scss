@@ -1,3 +1,5 @@
+@import "../../scss/colors";
+
 .section-projects {
   .container {
 
@@ -11,9 +13,9 @@
 
       .project-name, .project-number {
         height: 3rem;
-        background-color: #9FC3D8;
+        background-color: $bright-color;
         border-radius: 5px;
-        color: #FFF5E7;
+        color: $text-color;
         padding: 0.5rem;
         margin: 0.5rem 0;
 

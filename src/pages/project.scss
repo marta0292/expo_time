@@ -1,9 +1,66 @@
 @import "../scss/_colors";
-
+@mixin clearfix {
+  &:before, &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
 .container {
   color: $text-color;
-  span {
-    font-weight: 600;
+  .grid {
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    .row {
+      @include clearfix;
+
+      [class*="col-"] {
+        float: left;
+        min-height: 2rem;
+      }
+
+      @for $i from 1 through 12 {
+        .col-#{$i} {
+          width: (100%/12) * $i;
+        }
+      }
+    }
+    p {
+      font-size: 0.7rem;
+    }
+    .header {
+      .col-2 {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+    .show-info, .booth-info, .setup-info {
+      .col-4, .col-6 {
+        height: 3rem;
+        background-color: $bright-color;
+        border-radius: 5px;
+        padding: 0.5rem;
+        margin: 0.5rem 0.5rem 0.5rem 0;
+        &:last-of-type {
+          margin: 0.5rem 0;
+        }
+        p {
+          text-align: left;
+        }
+        h3 {
+          text-align: center;
+        }
+      }
+    }
+  .note-list {
+    ul {
+      li {
+        list-style: none;
+      }
+    }
   }
   .add-note {
     background-color: $bright-color;
@@ -13,9 +70,11 @@
     flex-direction: column;
     padding: 0.5rem 0 0.5rem 0.5rem;
     margin: 1rem 0;
+
     .note {
       display: flex;
       justify-content: space-between;
+      width: 100%;
       input {
         background-color: $bright-color;
         border: none;
@@ -24,11 +83,11 @@
         width: 95%;
       }
       .add-note-btn {
-        background-color: #9FC3D8;
+        background-color: $bright-color;
         border: none;
         color: $dark-color;
         width: 5%;
       }
     }
   }
-}
+}}
