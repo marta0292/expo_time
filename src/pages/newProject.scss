@@ -16,6 +16,8 @@ form {
       width: 20%;
     }
     input {
+      color: $text-color;
+      font-size: 1rem;
       background-color: $bright-color;
       border: none;
       border-bottom: 1px solid $dark-color;

@@ -33,7 +33,6 @@ class AddProject extends Component {
             method: 'POST',
             body: JSON.stringify(newProject),
         }).then((response) => {
-            this.componentDidMount();
             return response.json();
         })
     };

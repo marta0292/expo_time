@@ -21,6 +21,17 @@ class NoteList extends Component {
         event.preventDefault();
 
         const notes = [...this.state.notes];
+        fetch(`http://localhost:5000/projects/${this.props.match.params.projectId}`, {
+            headers: {
+                'content-type': 'application/json',
+            },
+            method: 'POST',
+            body: JSON.stringify(this.setNewNote),
+        }).then((response) => {
+            console.log(response);
+            // this.componentDidMount();
+            // return response.json();
+        });
 
         if (this.state.newNote !== '') {
             notes.push({
@@ -40,27 +51,23 @@ class NoteList extends Component {
         const {notes, newNote} = this.state;
 
         return (
-            <div className={'grid'}>
-                <div className={'row note-list'}>
-                    <div className={'col-12'}>
-                        <ul>
-                            {notes.map(note =>
-                                <li key={note.id}><p>{new Date().toLocaleDateString()}; {new Date().toLocaleTimeString()}:</p> {note.text}</li>)}
-                        </ul>
-                    </div>
+            <>
+                <div className={'note-list'}>
+                    <ul>
+                        {notes.map(note =>
+                            <li key={note.id}><p>{note.id}:</p> {note.text}</li>)}
+                    </ul>
                 </div>
-                <div className={'row'}>
-                    <div className={'col-12 add-note'}>
-                        <form onSubmit={this.handleSubmit}>
-                            <label>Note:</label>
-                            <div className={'note'}>
-                                <input name='note' value={newNote} onChange={this.setNewNote}/>
-                                <button className={'add-note-btn'}>{plusIcon}</button>
-                            </div>
-                        </form>
-                    </div>
+                <div className={'add-note'}>
+                    <form onSubmit={this.handleSubmit}>
+                        <label>Note:</label>
+                        <div className={'note'}>
+                            <input name='note' value={newNote} onChange={this.setNewNote}/>
+                            <button className={'add-note-btn'}>{plusIcon}</button>
+                        </div>
+                    </form>
                 </div>
-            </div>
+            </>
         )
     }
 }
@@ -93,25 +100,23 @@ class ProjectInfo extends Component {
             <>
             <Header/>
             <div className={'container'}>
-                <div className={'grid'}>
-                    <div className={'row header'}>
-                        <div className={'col-10 title'}><h2>{this.state.project.projectName}</h2></div>
-                        <div className={'col-2'}><p>Project number:</p><h3>{this.props.match.params.projectId}</h3></div>
+                    <div className={'header'}>
+                        <div className={'title'}><h2>{this.state.project.projectName}</h2></div>
+                        <div className={'project-number'}><p>Project number:</p><h3>{this.props.match.params.projectId}</h3></div>
                     </div>
-                    <div className={'row show-info'}>
-                        <div className={'col-4'}><p>Event:</p><h3>{this.state.project.showName}</h3></div>
-                        <div className={'col-4'}><p>Location:</p><h3>{this.state.project.city}</h3></div>
-                        <div className={'col-4'}><p>Term:</p><h3>{this.state.project.show}</h3></div>
+                    <div className={'show-info'}>
+                        <div className={'info'}><p>Event:</p><h3>{this.state.project.showName}</h3></div>
+                        <div className={'info'}><p>Location:</p><h3>{this.state.project.city}</h3></div>
+                        <div className={'info'}><p>Term:</p><h3>{this.state.project.show}</h3></div>
                     </div>
-                    <div className={'row booth-info'}>
-                        <div className={'col-6'}><p>Booth number:</p><h3>{this.state.project.boothNumber}</h3></div>
-                        <div className={'col-6'}><p>Hall number:</p><h3>{this.state.project.hallNumber}</h3></div>
+                    <div className={'booth-info'}>
+                        <div className={'info'}><p>Booth number:</p><h3>{this.state.project.boothNumber}</h3></div>
+                        <div className={'info'}><p>Hall number:</p><h3>{this.state.project.hallNumber}</h3></div>
                     </div>
-                    <div className={'row setup-info'}>
-                        <div className={'col-6'}><p>Assembly:</p><h3>{this.state.project.assembly}</h3></div>
-                        <div className={'col-6'}><p>Disassembly:</p><h3>{this.state.project.disassembly}</h3></div>
+                    <div className={'setup-info'}>
+                        <div className={'info'}><p>Assembly:</p><h3>{this.state.project.assembly}</h3></div>
+                        <div className={'info'}><p>Disassembly:</p><h3>{this.state.project.disassembly}</h3></div>
                     </div>
-                </div>
                 <NoteList/>
             </div>
             <FooterPages/>

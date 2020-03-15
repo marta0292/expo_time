@@ -2,6 +2,8 @@ import React, {Component} from "react";
 import './section_projects.scss';
 import '../../projects';
 import { NavLink} from "react-router-dom";
+import {faTimes} from '@fortawesome/free-solid-svg-icons'
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
 class SectionProjects extends Component {
     state = {
@@ -20,8 +22,20 @@ class SectionProjects extends Component {
             })
     };
 
+    handleDelete = (projectId) => {
+        fetch(`http://localhost:5000/projects/${projectId}`, {
+            method: 'DELETE'
+        }).then(resp => {
+            if (resp.ok) {
+                this.componentDidMount();
+            }
+            throw new Error('Network error during delete');
+        }).catch(err => console.error(err));
+    };
+
     render() {
         const {projects} = this.state;
+        const deleteIcon = <FontAwesomeIcon icon={faTimes}/>;
         return (
             <div className='section-projects'>
                 <div className='container'>
@@ -29,7 +43,7 @@ class SectionProjects extends Component {
                     <ul>
                         {projects.map(project => {
                             return (
-                                <li key={project.id}><NavLink exact to={`/project/${project.id}`} className='project-box'>
+                                <li key={project.id} className='project-box'><NavLink exact to={`/project/${project.id}`} className={'project-box-nav'}>
                                     <div className='project-name'>
                                         <p>Project name:</p>
                                         <h3>{project.projectName} - {project.showName}</h3>
@@ -38,7 +52,11 @@ class SectionProjects extends Component {
                                         <p>Project number:</p>
                                         <h3>{project.id}</h3>
                                     </div>
-                                </NavLink></li>
+                                    </NavLink>
+                                    <div className={'delete-icon'} onClick={() => this.handleDelete(project.id)}>
+                                        {deleteIcon}
+                                    </div>
+                                </li>
                             );
                         })}
                     </ul>

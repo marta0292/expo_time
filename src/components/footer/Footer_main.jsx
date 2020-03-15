@@ -6,7 +6,7 @@ const FooterMain = () => {
     return (
         <div className='footer'>
             <div className='container'>
-                <button className='button'><Link exact to="/newproject"><p>NEW PROJECT</p></Link></button>
+                <Link exact to="/newproject"><button className='button'><p>NEW PROJECT</p></button></Link>
             </div>
         </div>
     );
