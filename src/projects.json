@@ -10,19 +10,8 @@
       "boothNumber": "402",
       "assembly": "4-10.04.2020",
       "show": "11-15.03.2020",
-      "disassembly": "15-17.03.2020"
-    },
-    {
-      "id": 62950,
-      "projectName": "Philips",
-      "showName": "Dental Expo 2020",
-      "city": "Amsterdam",
-      "supplier": "Danpol",
-      "hallNumber": "B",
-      "boothNumber": "B135",
-      "assembly": "17-19.04.2020",
-      "show": "19-21.03.2020",
-      "disassembly": "21-23.03.2020"
+      "disassembly": "15-17.03.2020",
+      "notes": []
     },
     {
       "id": 62981,
@@ -34,7 +23,8 @@
       "boothNumber": "D200",
       "assembly": "20-23.03.2020",
       "show": "24-27.03.2020",
-      "disassembly": "27-29.03.2020"
+      "disassembly": "27-29.03.2020",
+      "notes": []
     },
     {
       "id": 62977,
@@ -46,7 +36,8 @@
       "boothNumber": "4B40",
       "assembly": "27-30.03.2020",
       "show": "31.03-02.04.2020",
-      "disassembly": "02-03.04.2020"
+      "disassembly": "02-03.04.2020",
+      "notes": []
     },
     {
       "id": 62911,
@@ -58,7 +49,21 @@
       "boothNumber": "5B67",
       "assembly": "25-30.03.2020",
       "show": "31.03-02.04.2020",
-      "disassembly": "02-04.04.2020"
+      "disassembly": "02-04.04.2020",
+      "notes": [
+        {
+          "text": "mammama",
+          "id": "42e35b04-6a22-4467-9b34-919a83aadfd6"
+        },
+        {
+          "text": "mamam",
+          "id": "0c5d3b51-a031-44fd-b157-9cae8cf81c4f"
+        },
+        {
+          "text": "Zamówic przyłącza",
+          "id": "1b9f284e-83d2-4c7e-ae78-dbc5972aea53"
+        }
+      ]
     }
   ]
 }

@@ -10,7 +10,9 @@ const Header = () => {
     return (
         <div className='header'>
             <div className='container'>
-                <img src={Logo} alt='logo'/>
+                <img
+                    src={Logo}
+                    alt='logo'/>
                 <div className='user'>
                     {userIcon}
                     <h2 className='userName'>Marta</h2>

@@ -6,7 +6,9 @@ const FooterPages = () => {
     return (
         <div className='footer'>
             <div className='container'>
-                <Link exact to="/"><button className='button'>STRONA GŁÓWNA</button></Link>
+                <Link to="/">
+                    <button className='button'>STRONA GŁÓWNA</button>
+                </Link>
             </div>
         </div>
     );

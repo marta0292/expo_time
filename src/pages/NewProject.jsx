@@ -14,10 +14,12 @@ class AddProject extends Component {
         boothNumber: "",
         assembly: "",
         show: "",
-        disassembly: ""
+        disassembly: "",
+        notes: []
     };
 
     handleChange = (e) => {
+        e.preventDefault();
         this.setState({
             [e.target.name]: e.target.value,
         })
@@ -42,49 +44,71 @@ class AddProject extends Component {
         return (
             <>
                 <h2 className='title'>New project</h2>
-                <form onSubmit={this.handleAddProject} className='new-project'>
+                <form onSubmit={this.handleAddProject}
+                      className='new-project'>
                     <div className={'box'}>
                         <label>Project name</label>
-                        <input name='projectName' value={projectName} onChange={this.handleChange} />
+                        <input name='projectName'
+                               value={projectName}
+                               nChange={this.handleChange} />
                     </div>
                     <div className={'box'}>
                         <label>Project number</label>
-                        <input name='id' value={id} onChange={this.handleChange} />
+                        <input name='id'
+                               value={id}
+                               onChange={this.handleChange} />
                     </div>
                     <div className={'box'}>
                         <label>Show name</label>
-                        <input name='showName' value={showName} onChange={this.handleChange} />
+                        <input name='showName'
+                               value={showName}
+                               onChange={this.handleChange} />
                     </div>
                     <div className={'box'}>
                         <label>City</label>
-                        <input name='city' value={city} onChange={this.handleChange} />
+                        <input name='city'
+                               value={city}
+                               onChange={this.handleChange} />
                     </div>
                     <div className={'box'}>
                         <label>Supplier</label>
-                        <input name='supplier' value={supplier} onChange={this.handleChange} />
+                        <input name='supplier'
+                               value={supplier}
+                               onChange={this.handleChange} />
                     </div>
                     <div className={'box'}>
                         <label>Hall number</label>
-                        <input name='hallNumber' value={hallNumber} onChange={this.handleChange} />
+                        <input name='hallNumber'
+                               value={hallNumber}
+                               onChange={this.handleChange} />
                     </div>
                     <div className={'box'}>
                         <label>Booth number</label>
-                        <input name='boothNumber' value={boothNumber} onChange={this.handleChange} />
+                        <input name='boothNumber'
+                               value={boothNumber}
+                               onChange={this.handleChange} />
                     </div>
                     <div className={'box'}>
                         <label>Assembly</label>
-                        <input name='assembly' value={assembly} onChange={this.handleChange} />
+                        <input name='assembly'
+                               value={assembly}
+                               onChange={this.handleChange} />
                     </div>
                     <div className={'box'}>
                         <label>Show time</label>
-                        <input name='show' value={show} onChange={this.handleChange} />
+                        <input name='show'
+                               value={show}
+                               onChange={this.handleChange} />
                     </div>
                     <div className={'box'}>
                         <label>Disassembly</label>
-                        <input name='disassembly' value={disassembly} onChange={this.handleChange} />
+                        <input name='disassembly'
+                               value={disassembly}
+                               onChange={this.handleChange} />
                     </div>
                     <div>
-                        <button className={'button'} type="submit">ADD NEW PROJECT</button>
+                        <button className={'button'}
+                                type="submit">ADD NEW PROJECT</button>
                     </div>
                 </form>
             </>
@@ -98,7 +122,6 @@ const NewProject = () => {
             <div className='container'>
                 <AddProject/>
             </div>
-
             <FooterPages/>
         </>
     );

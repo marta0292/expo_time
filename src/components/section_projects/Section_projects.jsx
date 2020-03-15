@@ -43,17 +43,24 @@ class SectionProjects extends Component {
                     <ul>
                         {projects.map(project => {
                             return (
-                                <li key={project.id} className='project-box'><NavLink exact to={`/project/${project.id}`} className={'project-box-nav'}>
-                                    <div className='project-name'>
-                                        <p>Project name:</p>
-                                        <h3>{project.projectName} - {project.showName}</h3>
-                                    </div>
-                                    <div className='project-number'>
-                                        <p>Project number:</p>
-                                        <h3>{project.id}</h3>
-                                    </div>
+                                <li key={project.id}
+                                    className='project-box'>
+                                    <NavLink exact to={`/project/${project.id}`}
+                                             className={'project-box-nav'}>
+                                        <div className='project-name'>
+                                            <p>Project name:</p>
+                                            <h3>{project.projectName} - {project.showName}</h3>
+                                        </div>
+                                        <div className='project-number'>
+                                            <p>Project number:</p>
+                                            <h3>{project.id}</h3>
+                                        </div>
                                     </NavLink>
-                                    <div className={'delete-icon'} onClick={() => this.handleDelete(project.id)}>
+                                    <div className={'delete-icon'}
+                                         onClick={(e) => {
+                                        e.preventDefault();
+                                        this.handleDelete(project.id)
+                                        }}>
                                         {deleteIcon}
                                     </div>
                                 </li>
