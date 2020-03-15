@@ -6,8 +6,8 @@ const FooterMain = () => {
     return (
         <div className='footer'>
             <div className='container'>
-                <Link to="/newproject">
-                    <button className='button'>NEW PROJECT</button>
+                <Link to="/newproject" className='button'>
+                    NEW PROJECT
                 </Link>
             </div>
         </div>

@@ -5,6 +5,7 @@ import './project.scss';
 import {faPlus} from '@fortawesome/free-solid-svg-icons'
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import { v4 as uuidv4 } from 'uuid';
+
 class NoteList extends Component {
     state = {
         newNote: '',
@@ -13,6 +14,7 @@ class NoteList extends Component {
         const { value } = e.target;
         this.setState({ newNote: value });
     };
+
     render() {
         const plusIcon = <FontAwesomeIcon icon={faPlus}/>;
         const {notes} = this.props;
@@ -21,7 +23,9 @@ class NoteList extends Component {
                 <div className={'note-list'}>
                     <ul>
                         {notes.map(note =>
-                            <li key={note.id}>{note.text}</li>)}
+                            <li key={note.id}>
+                                {note.text}
+                            </li>)}
                     </ul>
                 </div>
                 <div className={'add-note'}>

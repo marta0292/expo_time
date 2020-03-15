@@ -50,7 +50,7 @@ class AddProject extends Component {
                         <label>Project name</label>
                         <input name='projectName'
                                value={projectName}
-                               nChange={this.handleChange} />
+                               onChange={this.handleChange} />
                     </div>
                     <div className={'box'}>
                         <label>Project number</label>
